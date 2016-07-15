@@ -4,8 +4,7 @@ angular.module('meanshopApp')
   .factory('Products', function () {
     // Service logic
     
-    // Public API here
-    return [
+    var example_products = [
        {
           _id: 1,
           title: 'Product 1',
@@ -42,4 +41,54 @@ angular.module('meanshopApp')
           description: 'Lorem ipsum dolor sit amet' 
         }
     ];
+
+    // Public API here
+    return {
+      query: function(){
+          return example_products;
+      },
+
+      get:function(product){
+        var result = [];
+
+        angular.forEach(example_products, function(product){
+
+          if(product._id == params.id)
+            return this.product = product; 
+        },result);
+
+        return result.product;
+
+      },
+      delete:function(params){
+        angular.forEach(example_products, function (product, index){
+          if(product._id == params._id){
+            console.log(product,index);
+            example_products.slice(index,1);
+            return ;
+          }
+        });
+
+      },
+
+      create:function(product){
+        product.id = ++last_id;
+        example_products.push(product);
+
+      },
+
+      update: function(product){
+        var item = this.get(product);
+        if(!item) return false;
+
+        item.title = product.title;
+        item.price = product.price;
+        item.quantity = product.quantity;
+        item.description = product.description;
+
+        return true
+      }
+
+    };
+
   });

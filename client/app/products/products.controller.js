@@ -2,6 +2,6 @@
 
 angular.module('meanshopApp')
   .controller('ProductsCtrl', function ($scope, Products) {
-    $scope.products = Products
-   
+    $scope.products = Products.query();
+
   });
