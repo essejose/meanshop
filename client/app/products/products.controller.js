@@ -16,5 +16,19 @@ angular.module('meanshopApp')
     	$state.go('products');
     }
 
-  });
+  })
+
+   .controller('ProductsCtrl', function ($scope, $state, Product) {
+    $scope.products = {};
+
+    $scope.addProduct = function(){
+
+    	Products.create($scope.product);
+    	$state.go('products');
+    }
+
+  })
+
+
+
 
