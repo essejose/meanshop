@@ -29,6 +29,17 @@ angular.module('meanshopApp')
 
   })
 
+  .controller('ProductsCtrl', function ($scope, $state, $stateParams, Product) {
+    $scope.products = Products.get({id:$stateParams.id});
+
+    $scope.editProduct = function(product){
+
+    	Products.update($scope.product);
+    	$state.go('products');
+    }
+
+  })
+
 
 
 
