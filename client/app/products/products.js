@@ -15,5 +15,12 @@ angular.module('meanshopApp')
         controller: 'ProductsCtrl'
       });
 
+      .state('viewProduct', {
+        url: '/products/:id',
+        templateUrl: 'app/products/products-view.html',
+        controller: 'ProductsCtrl'
+      });
+
+
 
   });
