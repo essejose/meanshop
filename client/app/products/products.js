@@ -13,11 +13,17 @@ angular.module('meanshopApp')
         url: '/products/new',
         templateUrl: 'app/products/products-new.html',
         controller: 'ProductsCtrl'
-      });
+      })
 
       .state('viewProduct', {
         url: '/products/:id',
         templateUrl: 'app/products/products-view.html',
+        controller: 'ProductsCtrl'
+      })
+
+       .state('viewProduct', {
+        url: '/products/:id/edit',
+        templateUrl: 'app/products/products-edit.html',
         controller: 'ProductsCtrl'
       });
 
